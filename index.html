@@ -276,12 +276,32 @@
     width: 100%; height: 100%; border-radius: 50%;
     background: linear-gradient(135deg, var(--bg3), var(--bg2));
     border: 1px solid var(--border2);
-    display: flex; align-items: center; justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+  /* Profile image styling */
+  .profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    border-radius: 50%;
+    transition: transform 0.4s ease;
+  }
+  .avatar-inner:hover .profile-img {
+    transform: scale(1.03);
+  }
+  /* Fallback if image missing */
+  .avatar-inner .fallback-text {
     font-family: 'Syne', sans-serif;
-    font-size: 5rem; font-weight: 800;
+    font-size: 5rem;
+    font-weight: 800;
     background: linear-gradient(135deg, var(--accent), var(--accent2));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    overflow: hidden; position: relative;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
  
   .about-stats {
@@ -687,7 +707,11 @@
       <div style="display:flex; align-items:center; justify-content:center;">
         <div class="about-avatar">
           <div class="avatar-ring"></div>
-          <div class="avatar-inner">YP</div>
+          <div class="avatar-inner">
+            <!-- Profile image: replace 'your-photo.jpg' with actual image URL -->
+            <img class="profile-img" src="PHOTO-2026-04-08-11-45-50.jpg" alt="Yash Patel" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="fallback-text" style="display:none;">YP</div>
+          </div>
         </div>
       </div>
     </div>
@@ -1055,4 +1079,3 @@ window.addEventListener('scroll', () => {
 </script>
 </body>
 </html>
- 
